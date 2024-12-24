@@ -1,0 +1,203 @@
+/* css reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+html {
+	scrollbar-width: none;
+}
+
+/* ----- Body ----- */
+body {
+	font-family: "Devil Breeze";
+	font-size: 16px;
+	height: 2000px;
+}
+
+/* ----- Header ------ */
+header {
+	position: fixed;
+	top: 0;
+	left: 0;
+    width: 100%;
+    height: 6rem;
+    background-color: black;
+    display: flex;
+    align-items: center;
+	z-index: 10;
+}
+
+.header-box {
+    width: 90%;
+	margin: 4rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	box-sizing: border-box;
+}
+
+/* ----- Logo ----- */
+.logo img {
+	width: 230px;
+}
+
+/* ----- Navigation Bar ----- */
+.nav-bar ul {
+	display: flex;
+	align-items: center;
+}
+.nav-bar li {
+	margin: 0 1.5rem;
+}
+
+.nav-bar a {
+	color: white;
+	text-decoration: none;
+	position: relative;
+}
+
+.nav-bar a::after {
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 2px;
+	bottom: -5px;
+	left: 0;
+	background-color: white;
+	transform: scaleX(0);
+	transition: transform 0.25s ease-out, background-color 1s ease-out;
+	transform-origin: bottom right;
+}
+
+.nav-bar a:hover::after {
+	background-color: red;
+	transform: scaleX(1);
+	transform-origin: bottom left;
+}
+
+.nav-bar-down {
+	display: none;
+}
+
+.menu-icon {
+	color: white;
+	cursor: pointer;
+	display: none;
+}
+
+/* ----- Relative Header ----- */
+@media screen and (max-width: 800px) {
+	.nav-bar {
+		display: none;
+	}
+	.nav-bar-down {
+		display: block;
+		position: fixed;
+		top: -30rem;
+		left: 0;
+		width: 100%;
+		background-color: black;
+		transition: top .7s ease-in;
+	}
+
+	.nav-bar-down.responsive {
+		display: block;
+		position: fixed;
+		top: 6rem;
+		left: 0;
+		background-color: black;
+		transition: top .7s ease-out;
+	}
+
+	.nav-bar-down ul {
+		display: flex;
+		flex-direction: column;
+		margin: 0 2rem 21rem 2rem;
+	}
+
+	.nav-bar-down li {
+		margin: .5rem 0;
+		display: flex;
+		
+	}
+
+	.nav-bar-down a {
+		position: relative;
+		color: white;
+		text-decoration: none;
+		width: 100%;
+		padding: 20px 0;
+		text-align: center;
+	}
+
+	.nav-bar-down a::after {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 1px;
+		background-color: grey;
+		transform: scaleX(0);
+		transform-origin: center;
+		transition: transform .25s ease-out;
+	}
+
+	.nav-bar-down a:hover::after {
+		transform: scaleX(1);
+	}
+
+	.menu-icon {
+		display: block;
+		z-index: 11;
+	}
+
+	#navbar-icon2 {
+		display: none;
+	}
+}
+
+/* ----- Container ----- */
+.container {
+	margin-top: 6rem;
+	padding: 1.5rem;
+}
